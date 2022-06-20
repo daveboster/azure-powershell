@@ -1,5 +1,8 @@
 name: Test PowerShell on Ubuntu
-on: push
+on:
+  push:
+    paths:
+      - '**.ps1'
 
 jobs:
   pester-test:
