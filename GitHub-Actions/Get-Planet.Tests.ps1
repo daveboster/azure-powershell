@@ -1,18 +1,5 @@
 BeforeAll {
-    function Get-Planet ([string]$Name = '*') {        
-        $planets = @(
-            @{ Name = 'Mercury' }
-            @{ Name = 'Venus'   }
-            @{ Name = 'Earth'   }
-            @{ Name = 'Mars'    }
-            @{ Name = 'Jupiter' }
-            @{ Name = 'Saturn'  }
-            @{ Name = 'Uranus'  }
-            @{ Name = 'Neptune' }
-        ) | ForEach-Object { [PSCustomObject] $_ }
-
-        $planets | Where-Object { $_.Name -like $Name }
-    }
+    . $PSScriptRoot/Get-Planet.ps1
 }
 
 Describe 'Get-Planet' {
@@ -31,7 +18,7 @@ Describe 'Get-Planet' {
         $plutos = $allPlanets | Where-Object Name -EQ 'Pluto'
         $plutos.Count | Should -Be 0
     }
-    
+
     It 'Planets have this order: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune' {
         $allPlanets = Get-Planet
         $planetsInOrder = $allPlanets.Name -join ', '
