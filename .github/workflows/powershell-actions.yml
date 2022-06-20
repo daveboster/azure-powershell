@@ -6,12 +6,12 @@ on:
 
 jobs:
   pester-test:
-    name: Get-Planet Pester Tests
+    name: Run PowerShell Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform PowerShelll Unit Tests
+      - name: Run all Unit Tests
         shell: pwsh
         run: |
           Invoke-Pester -Path ./* -Passthru
