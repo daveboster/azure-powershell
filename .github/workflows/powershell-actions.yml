@@ -2,6 +2,7 @@ name: Test PowerShell on Ubuntu
 on:
   push:
     paths:
+      - '.github/workflows/powershell-actions.yml'  # This workflow
       - '**.ps1'
 
 jobs:
