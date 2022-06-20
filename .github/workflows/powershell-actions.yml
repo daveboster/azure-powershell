@@ -8,10 +8,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform a Pester test from the command-line
-        shell: pwsh
-        run: Test-Path resultsfile.log | Should -Be $true
-      - name: Perform a Pester test from the Tests.ps1 file
+      - name: Perform PowerShelll Unit Tests
         shell: pwsh
         run: |
-          Invoke-Pester ./GitHub-Actions/Get-Planet.Tests.ps1 -Passthru
+          Invoke-Pester -Path ./* -Passthru
